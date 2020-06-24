@@ -7,9 +7,8 @@ import java.util.Random;
  * @author Ningfan Chen
  */
 public class UnoApp {
-
     static Random random = new Random();
-    static ColorCard[] hand = new ColorCard[7];
+    static Card[] hand = new Card[7];
 
     /**
      * @param args the command line arguments

@@ -1,12 +1,23 @@
-public class WildCard extends Card {
 
-	public void getNewColor() {
-		// TODO - implement Class2.getNewColor
-		throw new UnsupportedOperationException();
+public class WildCard extends Card {
+	protected Color color = Color.Wild;
+	
+	public void getNewColor(Color newColor) {
+		this.color = newColor;
 	}
 
 	public WildCard() {
-		// TODO - implement Class2.WildCard
-		throw new UnsupportedOperationException();
+		this.color = Color.Wild;
 	}
+
+	public Color getColor() {
+        return this.color;
+    }
+	
+	@Override
+	public String toString() {
+		return "WildCard, New color:" + getColor();
+	}
+
+
 }

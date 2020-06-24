@@ -1,4 +1,8 @@
-public class ReverseCard extends ColorCard {
+public class ReverseCard extends Card {
+	
+	public ReverseCard() {
+		this.setColorRandom();
+	}
 
 	/**
 	 * 
@@ -6,6 +10,16 @@ public class ReverseCard extends ColorCard {
 	 */
 	public void setClockwise(boolean clockwise) {
 		// TODO - implement ReverseCard.setClockwise
-		throw new UnsupportedOperationException();
+		if(this.clockwise = true) {
+			this.clockwise = false;
+		}else {
+		this.clockwise = true;
+		}
 	}
+	
+	@Override
+	public String toString() {
+		return "Reverse card: " + this.getColor() + ", Clockwise: " + this.getClockwise();
+	}
+	
 }
