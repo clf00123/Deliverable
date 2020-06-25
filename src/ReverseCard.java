@@ -8,18 +8,10 @@ public class ReverseCard extends Card {
 	 * 
 	 * @param clockwise
 	 */
-	public void setClockwise(boolean clockwise) {
-		// TODO - implement ReverseCard.setClockwise
-		if(this.clockwise = true) {
-			this.clockwise = false;
-		}else {
-		this.clockwise = true;
-		}
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Reverse card: " + this.getColor() + ", Clockwise: " + this.getClockwise();
+		return "Reverse card: " + this.getColor();
 	}
 	
 }

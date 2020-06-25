@@ -5,13 +5,17 @@
  * @author Ningfan Chen
  */
 public abstract class Card {
-    protected boolean clockwise;
-    public enum Color {
-        Red, Blue, Yellow, Green, Wild
-    };
 
     private Color color;
     protected int punish = 1;
+    
+    public boolean isEmpty() {
+    	return false;
+    }
+    
+    public boolean isPass() {
+    	return false;
+    }
 
 
     public int getPunish() {
@@ -31,18 +35,6 @@ public abstract class Card {
      */
     public void setColor(Color color) {
         this.color = color;
-    }
-	
-    public boolean getClockwise() {
-        return this.clockwise;
-    }
-
-    /**
-     *
-     * @param clockwise
-     */
-    public void setClockwise(boolean clockwise) {
-        this.clockwise = clockwise;
     }
 
 	public abstract String toString();
@@ -71,7 +63,7 @@ public abstract class Card {
 	}
 
 	public boolean sameNumber(Card other) {
-		if (this instanceof NumberCard && this instanceof NumberCard) {
+		if (this instanceof NumberCard && other instanceof NumberCard) {
 			NumberCard newthis = (NumberCard)this;
 			NumberCard newother = (NumberCard)other;
 			return newthis.getNumber() == newother.getNumber();
@@ -79,7 +71,38 @@ public abstract class Card {
 		return false;
 	}
 	
-	public boolean sametype(Card other) {
+	public boolean sameType(Card other) {
 		return this.getClass().equals(other.getClass());
 	}
+
+	public boolean isValid(Card prev) {
+		if (prev.isEmpty()) {
+			return true;
+		}
+		if (this instanceof PlusFourCard) {
+			return true;
+		} else if(this instanceof NumberCard && prev instanceof NumberCard) {
+			if(this.sameNumber(prev)) {
+				return true;
+			}	
+				return this.sameColor(prev);
+		} else if(this.sameType(prev)) {
+			return true;
+		}
+		return this.sameColor(prev) || this.getColor() == Color.Wild;
+	
+	}
+	
+	public static void main(String[] args) {
+		Card c1 = new NumberCard();
+		Card c2 = new NumberCard();
+		System.out.println(c1);
+		System.out.println(c2);
+		NumberCard newc1 = (NumberCard)c1;
+		NumberCard newc2 = (NumberCard)c2;
+		System.out.println(newc1);
+		System.out.println(newc2);
+		
+	}
+
 }

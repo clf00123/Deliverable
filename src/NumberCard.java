@@ -30,7 +30,7 @@ public class NumberCard extends Card {
 	}
 	
 	public void setNumberRandom() {
-		int num = (int)(Math.random() * 9);
+		int num = (int)(Math.random() * 10);
 		this.setNumber(num);
 	}
 	

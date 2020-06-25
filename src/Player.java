@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Player {
 	boolean skip = false;
-	int punishment = 0;
+	private int punishment = 0;
 	ArrayList<Card> hand = new ArrayList<Card>();
 
 	public ArrayList<Card> getHand(){
@@ -30,6 +30,12 @@ public class Player {
 		}
 	}
 	
+	public void addCardRandom(int times) {
+		for (int i = 0; i < times; i++) {
+			addCardRandom();
+		}
+	}
+	
 	public void initialHand() {
 		for(int i = 0; i < 7; i++) {
 			addCardRandom();
@@ -54,9 +60,29 @@ public class Player {
 		return hand.isEmpty();
 	}
 	
+	public Card canPlayCard(Card prev, int i) {
+		if(i == 0) {
+			return new PassCard();
+		}
+		if(this.hand.get(i-1).isValid(prev)){
+			return this.playCard(i);
+		}
+		return new EmptyCard();
+	}
+	
+	public int getPunishment() {
+		return punishment;
+	}
+	
+	public void setPunishment(int punishment) {
+		this.punishment = punishment;
+	}
+
+	
 	public static void main(String[] args) {
 		Player p1 = new Player();
 		p1.initialHand();
+		
 		System.out.print(p1.showHand());
 		System.out.print(p1.playCard(4));
 		System.out.print(p1.showHand());
