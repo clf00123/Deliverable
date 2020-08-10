@@ -1,5 +1,6 @@
+
 public interface PlusCard {
 
-	public void plusCard();
+    public void plusCard();
 
 }

@@ -1,6 +1,6 @@
 
 /**
- * This class +++Insert Description Here+++
+ * Collet all cards
  *
  * @author Ningfan Chen
  */

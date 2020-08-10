@@ -2,6 +2,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Main class
+ *
+ * @author Ningfan Chen
+ */
 public class UnoController {
 
     Scanner sc = new Scanner(System.in);
@@ -16,35 +21,34 @@ public class UnoController {
     public boolean isSkipped(Card curr) {
         return curr instanceof SkipCard;
     }
-    
+
     public int isInteger(String s) {
-    	try {
-    		int i = Integer.parseInt(s);
-    		return i;
-    	}
-    	catch (Exception e) {
-    		return -1;
-    	}
+        try {
+            int i = Integer.parseInt(s);
+            return i;
+        } catch (Exception e) {
+            return -1;
+        }
     }
 
     public int getInput() {
         String input = sc.next();
         int result = isInteger(input);
         while (result < 0) {
-        	System.out.println("Enter a valid integer");
-        	input = sc.next();
-        	result = isInteger(input);
+            System.out.println("Enter a valid integer");
+            input = sc.next();
+            result = isInteger(input);
         }
         return result;
     }
-    
+
     public int getValidIndex(Player player) {
-    	int index = getInput();
-    	while (index > player.countHand()) {
-    		System.out.println("Enter a valid integer");
-    		index = getInput();
-    	}
-    	return index;
+        int index = getInput();
+        while (index > player.countHand()) {
+            System.out.println("Enter a valid integer");
+            index = getInput();
+        }
+        return index;
     }
 
     public void getNewColor(WildCard card) {
@@ -64,7 +68,7 @@ public class UnoController {
     }
 
     public Color getColor() {
-        
+
         String c = sc.nextLine();
         while (c.equals("")) {
             c = sc.nextLine();
@@ -118,7 +122,7 @@ public class UnoController {
 
             for (int i = 0; i < move; i++) {
                 curr--;
-                if (curr <= 0) {
+                if (curr < 0) {
                     curr = players.size() - 1;
                 }
             }

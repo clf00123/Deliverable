@@ -1,4 +1,9 @@
 
+/**
+ * add two cards to player
+ *
+ * @author Ningfan Chen
+ */
 public class PlusTwoCard extends Card implements PlusCard {
 
     public PlusTwoCard() {

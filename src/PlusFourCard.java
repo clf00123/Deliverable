@@ -1,4 +1,9 @@
 
+/**
+ * add 4 cards to player
+ *
+ * @author Ningfan Chen
+ */
 public class PlusFourCard extends WildCard implements PlusCard {
 
     public PlusFourCard() {
