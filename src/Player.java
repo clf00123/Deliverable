@@ -13,6 +13,10 @@ public class Player {
 		this.hand.add(newCard);
 	}
 	
+	public int countHand() {
+		return hand.size();
+	}
+	
 	public void addCardRandom() {
 		int num = (int)(Math.random() * (108));
 		if(num < 76) {

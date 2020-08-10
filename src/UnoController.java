@@ -16,10 +16,35 @@ public class UnoController {
     public boolean isSkipped(Card curr) {
         return curr instanceof SkipCard;
     }
+    
+    public int isInteger(String s) {
+    	try {
+    		int i = Integer.parseInt(s);
+    		return i;
+    	}
+    	catch (Exception e) {
+    		return -1;
+    	}
+    }
 
     public int getInput() {
-        int i = sc.nextInt();
-        return i;
+        String input = sc.next();
+        int result = isInteger(input);
+        while (result < 0) {
+        	System.out.println("Enter a valid integer");
+        	input = sc.next();
+        	result = isInteger(input);
+        }
+        return result;
+    }
+    
+    public int getValidIndex(Player player) {
+    	int index = getInput();
+    	while (index > player.countHand()) {
+    		System.out.println("Enter a valid integer");
+    		index = getInput();
+    	}
+    	return index;
     }
 
     public void getNewColor(WildCard card) {
@@ -172,7 +197,7 @@ public class UnoController {
 
             System.out.println("input an index of Card to play. "
                     + "Input 0 to skip and draw card.");
-            int nextCardind = getInput();
+            int nextCardind = getValidIndex(curPlayer);
 
             Card curCard = curPlayer.canPlayCard(prevCard, nextCardind);
 
