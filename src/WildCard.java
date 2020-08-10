@@ -14,6 +14,7 @@ public class WildCard extends Card {
 		this.color = Color.Wild;
 	}
 
+        @Override
 	public Color getColor() {
         return this.color;
     }
